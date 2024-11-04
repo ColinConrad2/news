@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party
     "crispy_forms",
+    "debug_toolbar",
     "crispy_bootstrap5",
+    "captcha",
     #local
     "accounts",
     "pages",
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -55,6 +58,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "django_project.urls"
 
@@ -106,6 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#------------Student Added-------------#
+#Internal IP settings for debug toolbar
+INTERNAL_IPS = [
+  
+    "127.0.0.1",
+
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
